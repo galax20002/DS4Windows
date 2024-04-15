@@ -189,6 +189,10 @@ namespace DS4Windows
 
         private static bool IsRealDS4(HidDevice hDevice)
         {
+            if (hDevice.Attributes.VendorId == 1356 && hDevice.Attributes.ProductId == 1476)
+            {
+                return true;
+            }
             bool result = !Global.CheckIfVirtualDevice(hDevice.DevicePath);
             return result;
         }
